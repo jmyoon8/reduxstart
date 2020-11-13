@@ -1,19 +1,19 @@
-const { INCRESMENT, DECREAMENT, SET_COLOR } = require("./ActionTypes");
+import {INCREMENT,DECREMENT,SET_COLOR } from './ActionTypes';
 
 export function increment(){
     return {
-        type : INCRESMENT
+        type : INCREMENT
     }
 }
 export function decrement(){
     return{
-        type : DECREAMENT
+        type : DECREMENT
     }
 }
 
 export function setColor(color) {
     return{
-        type:SET_COLOR,
+        type: SET_COLOR,
         color
     }
 }

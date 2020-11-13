@@ -13,7 +13,7 @@ class Controls extends Component {
         return (
             <div>
                 <button onClick={this.props.onPlus}>+</button>
-                <button onClick={this.props.onSubtract}> -</button>
+                <button onClick={this.props.onSubstract}> -</button>
                 <button onClick={this.props.onRandomizeColor}> color random</button>
             </div>
         );

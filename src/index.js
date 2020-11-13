@@ -1,21 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './component/App';
-import reportWebVitals from './reportWebVitals';
+import App from './components/App';
+import { createStore } from 'redux';
+import reducers from './reducers';
+import { Provider } from 'react-redux';
 
-import {createStore} from 'redux'
-import reducers from './reducers'
+const store = createStore(reducers);
 //index 파일은 폴더에 접근만해도 자동으로 불러온다.
-const store= createStore(reducers);
+//store안에 리듀서index.js(모든 리듀서를 가지고있는 파일)을 인수로 넣어준다.
+//subcribe(listener) 상태가 바뀔때마다 실행될 함수등록(listener는 실행될 함수를 등록한것)
+store.subscribe(()=>console.log("바뀐현재상태 : ",store.getState()));
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Provider store={store}>
+      
+      <App />
+      
+    </Provider>
+    ,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
